@@ -1,0 +1,6 @@
+id,name,class_id,backlog,age,city,country,street
+ST1,Emily,S1,false,19,Alwar,India,BajrangGali
+ST2,David,S1,true,20,Jaipur,India,BajrangGali
+ST3,Sophia,S2,false,21,Ajmer,India,Bajrang Gali
+ST4,James,S2,false,22,Jodhpur,India,BajrangGali
+ST5,Olivia,S3,true,20,Hanumangarh,India,BajrangGali
