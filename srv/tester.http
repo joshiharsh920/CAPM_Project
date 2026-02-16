@@ -1,0 +1,7 @@
+###Get service document-contains the entity sets of the entire service.
+http://localhost:4004/odata/v4/MyService
+###Get service metadata
+http://localhost:4004/odata/v4/MyService/$metadata
+
+###Get all the employee data in JSON
+http://localhost:4004/odata/v4/CatalogService/EmployeeSet?$select=ID,nameFirst
