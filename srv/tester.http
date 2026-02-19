@@ -1,10 +1,34 @@
 ###Get service document-contains the entity sets of the entire service.
-http://localhost:4004/odata/v4/MyService
+POST http://localhost:4004/odata/v4/MyService/ProjectEmployee
+Content-Type: application/json
+
+{
+      "nameFirst": "SYed",
+      "nameMiddle": null,
+      "nameLast": "Maaz",
+      "nameInitials": null,
+      "sex": "F",
+      "language": "E",
+      "phoneNumber": null,
+      "email": "susan.summer@ite.info",
+      "loginName": "SUMRS",
+      "Currency_code": "USD",
+      "salaryAmount": 762329,
+      "accountNumber": "9988176655",
+      "bankId": "121990358",
+      "bankName": "My Bank of Alwar"
+}
+
+###
+http://localhost:4004/odata/v4/MyService/ProjectEmployee
+
+
+
 ###Get service metadata
 http://localhost:4004/odata/v4/MyService/$metadata
 
 ###Get all the employee data in JSON
-DELETE http://localhost:4004/odata/v4/CatalogService/EmployeeSet/02BD2137-0890-1EEA-A6C2-BB55C19787FB
+POST http://localhost:4004/odata/v4/CatalogService/EmployeeSet/02BD2137-0890-1EEA-A6C2-BB55C19787FB
 
 ###
 POST http://localhost:4004/odata/v4/CatalogService/POs
@@ -27,5 +51,15 @@ Content-Type: application/json
       "bankName": "My Bank of San Francisco"
 }
 
-###
- http://localhost:4004/odata/v4/CatalogService/POs/74867AD200E41EDBA5D8B0C98DC28052
+###Get POs
+http://localhost:4004/odata/v4/CatalogService/getLargestOrder()
+
+
+###testing purpose
+http://localhost:4004/odata/v4/CatalogService/POs
+
+###testing boost service
+POST http://localhost:4004/odata/v4/CatalogService/POs('74867AD200E41EDBA5D8B0C98DC2C052')/CatalogService.boost
+Content-Type: application/json
+
+{}

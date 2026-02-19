@@ -11,8 +11,9 @@ service CatalogService @(path:'CatalogService'){
         Items
     }
     actions{
-        action boost();
+        action boost() returns POs;
     };
+    function getLargestOrder() returns POs;
     entity poitems as projection on transaction.poitems;
     entity ProductCDS as projection on cds.CDSViews.ProductView;
 

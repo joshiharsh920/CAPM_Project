@@ -1,4 +1,4 @@
-namespace anubhav.common;
+namespace anubhav. common;
 using { Currency } from '@sap/cds/common';
 
 
