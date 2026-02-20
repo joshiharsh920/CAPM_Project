@@ -15,7 +15,7 @@ module.exports=cds.service.impl(async function(){
             console.log("Hey harsh you gave me id:", ID);
             const tx=cds.tx(req);
             await tx.update(POs).with({
-                GROSS_AMOUNT : {'+=' : 20000 }
+                GROSS_AMOUNT : {'+=' : 800 }
              }).where(ID);
              return tx.read(POs).where(ID); 
         } catch (error) {

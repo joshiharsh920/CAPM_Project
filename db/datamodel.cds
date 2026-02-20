@@ -6,7 +6,7 @@ using { anubhav.common } from './commons';
 context master {
     
     entity businesspartner {
-        key NODE_KEY: common.Guid;
+        key NODE_KEY: common.Guid @(title:'Business Partner Id');
         BP_ROLE: String(2);
         EMAIL_ADDRESS: String(105);
         PHONE_NUMBER: String(32);
@@ -73,9 +73,9 @@ context master {
 context transaction {
     entity purchaseorder: common.Amount{
         key NODE_KEY: common.Guid;
-        PO_ID: String(40);
+        PO_ID: String(40) @(title: '{i18n>PO_ID}');
         PARTNER_GUID: Association to master.businesspartner;
-        LIFECYCLE_STATUS: String(1);
+        LIFECYCLE_STATUS: String(1) @(title:'Lifecycle Status');
         OVERALL_STATUS: String(1);
         Items: Association to many poitems on Items.PARENT_KEY = $self;
     }
