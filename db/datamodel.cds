@@ -71,17 +71,17 @@ context master {
 }
 
 context transaction {
-    entity purchaseorder: common.Amount{
-        key NODE_KEY: common.Guid;
+    entity purchaseorder: common.Amount,cuid{
+        // key NODE_KEY: common.Guid;
         PO_ID: String(40) @(title: '{i18n>PO_ID}');
-        PARTNER_GUID: Association to master.businesspartner;
+        PARTNER_GUID: Association to master.businesspartner @(title:'Partner Id');
         LIFECYCLE_STATUS: String(1) @(title:'Lifecycle Status');
-        OVERALL_STATUS: String(1);
+        OVERALL_STATUS: String(1) @(title:'Overall Status');
         Items: Association to many poitems on Items.PARENT_KEY = $self;
     }
 
-    entity poitems: common.Amount{
-        key NODE_KEY: common.Guid;
+    entity poitems: common.Amount,cuid{
+        // key NODE_KEY: common.Guid;
         PARENT_KEY: Association to purchaseorder;
         PO_ITEM_POS: Integer;
         PRODUCT_GUID: Association to master.product;

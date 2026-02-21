@@ -6,7 +6,7 @@ service CatalogService @(path:'CatalogService'){
     entity EmployeeSet as projection on master.employees;
     entity AddressSet as projection on master.address;
     entity BusinessPartnerSet as projection on master.businesspartner;
-    entity POs as projection on transaction.purchaseorder{
+    entity POs @(odata.draft.enabled:true) as projection on transaction.purchaseorder{
         *,
         Items,
         case OVERALL_STATUS
@@ -36,7 +36,7 @@ service CatalogService @(path:'CatalogService'){
         action boost() returns POs;
     };
     function getLargestOrder() returns POs;
-    entity poitems as projection on transaction.poitems;
-    entity ProductCDS as projection on cds.CDSViews.ProductView;
+    entity POItems as projection on transaction.poitems;
+    entity Product as projection on cds.CDSViews.ProductView;
 
 }
