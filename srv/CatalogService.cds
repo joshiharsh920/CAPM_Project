@@ -34,7 +34,9 @@ service CatalogService @(path:'CatalogService'){
         },
         }
         action boost() returns POs;
+        action setOrderProcessing();
     };
+    function getOrderDefaults() returns POs;
     function getLargestOrder() returns POs;
     entity POItems as projection on transaction.poitems;
     entity Product as projection on cds.CDSViews.ProductView;

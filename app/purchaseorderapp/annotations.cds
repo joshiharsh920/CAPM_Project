@@ -1,6 +1,7 @@
 using CatalogService as service from '../../srv/CatalogService';
 
 annotate service.POs with @(
+ Common.DefaultValuesFunction : 'getOrderDefaults',
  UI.HeaderInfo:{
  TypeName: 'POs',
  TypeNamePlural:'Purchase Orders',
@@ -37,6 +38,12 @@ annotate service.POs with @(
         $Type: 'UI.DataField',
         Value:lifeatcycle,
         Criticality: ColorCode
+    },
+    {
+        $Type:'UI.DataFieldForAction',
+        Action:'CatalogService.setOrderProcessing',
+        Label:'Set Order Status',
+        Inline:false
     },
     {
         $Type:'UI.DataFieldForAction',

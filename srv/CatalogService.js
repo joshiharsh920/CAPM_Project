@@ -8,7 +8,12 @@ module.exports=cds.service.impl(async function(){
      }
     });
 
-    
+    this.on('getOrderDefaults',function(req,res){
+        return {
+            "OVERALL_STATUS":"N"
+        };
+        });
+        
     this.on('boost','POs',async function(req,res){
         try {
             const ID=req.params[0];
@@ -22,6 +27,11 @@ module.exports=cds.service.impl(async function(){
             console.log("Error : "+ error.toString())
         }
     })
+
+     this.on('setOrderProcessing', POs, async req => {
+        const tx = cds.tx(req);
+        await tx.update(POs, req.params[0].ID).set({OVERALL_STATUS: 'D'});
+    });
 
     this.on('getLargestOrder',async function(req,res) {
         try {
