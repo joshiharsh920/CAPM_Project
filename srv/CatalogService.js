@@ -30,7 +30,7 @@ module.exports=cds.service.impl(async function(){
 
      this.on('setOrderProcessing', POs, async req => {
         const tx = cds.tx(req);
-        await tx.update(POs, req.params[0].ID).set({OVERALL_STATUS: 'D'});
+        await tx.update(POs, req.params[0].ID).set({OVERALL_STATUS: 'A'});
     });
 
     this.on('getLargestOrder',async function(req,res) {

@@ -29,16 +29,16 @@ service CatalogService @(path:'CatalogService'){
         @Common : { SideEffects:{
         $Type:'Common.SideEffectsType',
         TargetProperties : [
-           'in/GROSS_AMOUNT',
+           'in/GROSS_AMOUNT','in/OVERALL_STATUS'
         ],
         },
         }
         action boost() returns POs;
-        action setOrderProcessing();
+        action setOrderProcessing() returns POs;
     };
     function getOrderDefaults() returns POs;
     function getLargestOrder() returns POs;
     entity POItems as projection on transaction.poitems;
-    entity Product as projection on cds.CDSViews.ProductView;
+    entity ProductSet as projection on cds.CDSViews.ProductView;
 
 }
