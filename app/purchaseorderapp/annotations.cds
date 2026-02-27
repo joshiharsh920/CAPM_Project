@@ -52,7 +52,7 @@ annotate service.POs with @(
         Inline:true
     }
  ],
- UI.Facets:[
+ UI.Facets:[ 
     {
         $Type:'UI.CollectionFacet',
         Label:'PO Information',
