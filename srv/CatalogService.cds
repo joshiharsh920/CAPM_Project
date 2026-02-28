@@ -1,44 +1,52 @@
-using { anubhav.db.master, anubhav.db.transaction } from '../db/datamodel';
-using { cappo.cds } from '../db/CDSViews';
+using { anubhav.db } from '../db/datamodel';
 
 
-service CatalogService @(path:'CatalogService'){
-    entity EmployeeSet as projection on master.employees;
-    entity AddressSet as projection on master.address;
-    entity BusinessPartnerSet as projection on master.businesspartner;
-    entity POs @(odata.draft.enabled:true) as projection on transaction.purchaseorder{
+
+service CatalogService @(path : 'CatalogService', requires: 'authenticated-user') {
+    //@Capabilities.Updatable: false
+    entity BusinessPartnerSet as projection on db.master.businesspartner;
+    entity AddressSet as projection on db.master.address;
+    //@readonly
+    entity EmployeeSet @(restrict: [ 
+                        { grant: ['READ'], to: 'Viewer', where: 'bankName = $user.BankName' },
+                        { grant: ['WRITE'], to: 'Admin' }
+                        ]) as projection on db.master.employees;
+    entity POs @(
+        odata.draft.enabled: true
+    ) as projection on db.transaction.purchaseorder{
         *,
-        Items,
         case OVERALL_STATUS
-           when 'P' then 'Pending'
-           when 'A' then 'Approved'
-           when 'X' then 'Rejected'
-           when 'N' then 'New'
-        end as Overallstatus:String(30),
+            when 'N' then 'New'
+            when 'P' then 'Paid'
+            when 'B' then 'Blocked'
+            else 'Delivered' end as OVERALL_STATUS: String(20),
         case OVERALL_STATUS
-           when 'P' then 2
-           when 'A' then 2
-           when 'X' then 1
-           when 'N' then 3
-        end as ColorCode:String(10),
-        case LIFECYCLE_STATUS
-        when 'N' then 'new'
-        end as lifeatcycle:String(10),
+            when 'N' then 0
+            when 'P' then 1
+            when 'B' then 2
+            else 3 end as Criticality: Integer,
+            Items
+
     }
     actions{
-        @Common : { SideEffects:{
-        $Type:'Common.SideEffectsType',
-        TargetProperties : [
-           'in/GROSS_AMOUNT','in/OVERALL_STATUS'
-        ],
-        },
-        }
+        @cds.odata.bindingparameter.name : '_anubhav'
+        @Common.SideEffects : {
+                TargetProperties : ['_anubhav/GROSS_AMOUNT']
+            }  
         action boost() returns POs;
-        action setOrderProcessing() returns POs;
+        @cds.odata.bindingparameter.name : '_ananya'
+        @Common.SideEffects : {
+                TargetProperties : ['_ananya/OVERALL_STATUS']
+            }  
+        action setOrderProcessing();
+        function largestOrder() returns array of POs;
     };
-    function getOrderDefaults() returns POs;
-    function getLargestOrder() returns POs;
-    entity POItems as projection on transaction.poitems;
-    entity ProductSet as projection on cds.CDSViews.ProductView;
 
+    function getOrderDefaults() returns POs;
+    entity POItems as projection on db.transaction.poitems;
+    entity ProductSet as projection on db.master.product;
+    //entity PurchaseOrderSet as projection on cds.CDSViews.POWorklist;
+    //entity ItemView as projection on cds.CDSViews.ItemView;
+    //entity ProductSet as projection on cds.CDSViews.ProductView;
+    ///entity ProductSales as projection on cds.CDSViews.CProductValuesView;
 }
