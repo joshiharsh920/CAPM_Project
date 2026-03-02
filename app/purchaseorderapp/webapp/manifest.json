@@ -57,7 +57,7 @@
     }
   },
   "sap.ui5": {
-    "flexEnabled": true,
+    "flexEnabled": false,
     "dependencies": {
       "minUI5Version": "1.144.1",
       "libs": {
@@ -70,8 +70,14 @@
       "compact": true,
       "cozy": true
     },
-    "models": {
+   "models": {
       "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "invenio.purchaseorderapp.i18n.i18n"
+        }
+      },
+      "@i18n": {
         "type": "sap.ui.model.resource.ResourceModel",
         "settings": {
           "bundleName": "invenio.purchaseorderapp.i18n.i18n"
@@ -85,10 +91,6 @@
           "autoExpandSelect": true,
           "earlyRequests": true
         }
-      },
-      "@i18n": {
-        "type": "sap.ui.model.resource.ResourceModel",
-        "uri": "i18n/i18n.properties"
       }
     },
     "resources": {

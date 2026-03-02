@@ -7,10 +7,7 @@ service CatalogService @(path : 'CatalogService', requires: 'authenticated-user'
     entity BusinessPartnerSet as projection on db.master.businesspartner;
     entity AddressSet as projection on db.master.address;
     //@readonly
-    entity EmployeeSet @(restrict: [ 
-                        { grant: ['READ'], to: 'Viewer', where: 'bankName = $user.BankName' },
-                        { grant: ['WRITE'], to: 'Admin' }
-                        ]) as projection on db.master.employees;
+   entity EmployeeSet @(restrict: [  { grant: ['READ'], to: 'Viewer' }]) as projection on db.master.employees;
     entity POs @(
         odata.draft.enabled: true
     ) as projection on db.transaction.purchaseorder{

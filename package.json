@@ -1,36 +1,37 @@
 {
-  "name": "mycapapp",
-  "version": "1.0.0",
-  "description": "A simple CAP project.",
-  "dependencies": {
-    "@cap-js/hana": "^2",
-    "@cap-js/postgres": "^2.1.3",
-    "@sap/cds": "^9.7.1",
-    "express": "^4",
-    "@sap/xssec": "^4"
-  },
-  "devDependencies": {
-    "@cap-js/sqlite": "^2",
-    "@sap/cds-dk": "^9",
-    "cds-plugin-ui5": "^0.13.0"
-  },
-  "scripts": {
-    "start": "cds-serve",
-    "watch-purchaseorderapp": "cds watch --open invenio.purchaseorderapp/index.html?sap-ui-xx-viewCache=false --livereload false"
-  },
-  "private": true,
-  "workspaces": [
-    "app/*"
-  ],
-  "sapux": [
-    "app/purchaseorderapp"
-  ],
+ "name": "mycapapp",
+ "version": "1.0.0",
+ "description": "A simple CAP project.",
+ "dependencies": {
+  "@cap-js/hana": "^2",
+  "@cap-js/postgres": "^2.1.3",
+  "@sap/xssec": "^4",
+  "express": "^4"
+ },
+ "devDependencies": {
+  "@cap-js/sqlite": "^2",
+  "@sap/cds": "^9.7.1",
+  "@sap/cds-dk": "^9",
+  "cds-plugin-ui5": "^0.13.0"
+ },
+ "scripts": {
+  "start": "cds-serve",
+  "watch-purchaseorderapp": "cds watch --open invenio.purchaseorderapp/index.html?sap-ui-xx-viewCache=false --livereload false"
+ },
+ "private": true,
+ "workspaces": [
+  "app/*"
+ ],
+ "sapux": [
+  "app/purchaseorderapp"
+ ],
  "cds": {
   "requires": {
-    "db": {
-      "kind": "hana",
-      "auth": "xsuaa"
-    }
+   "db": {
+    "kind": "hana",
+    "auth": "xsuaa"
+   },
+   "html5-repo": true
   }
-}
+ }
 }
