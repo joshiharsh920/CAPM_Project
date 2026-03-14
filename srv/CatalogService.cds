@@ -3,16 +3,16 @@ using {anubhav.db} from '../db/datamodel';
 
 service CatalogService @(path: 'CatalogService') {
     //@Capabilities.Updatable: false
-    entity BusinessPartnerSet               as projection on db.master.businesspartner;
-    entity AddressSet                       as projection on db.master.address;
+    entity BusinessPartnerSet                    as projection on db.master.businesspartner;
+    entity AddressSet                            as projection on db.master.address;
 
     //@readonly
     entity EmployeeSet @(restrict: [{
         grant: ['READ'],
         to   : 'Viewer'
-    }])                                     as projection on db.master.employees;
+    }])                                          as projection on db.master.employees;
 
-    entity POs @(odata.draft.enabled: true) as
+    entity POs @(odata.draft.enabled: true)      as
         projection on db.transaction.purchaseorder {
             *,
             case
@@ -53,11 +53,11 @@ service CatalogService @(path: 'CatalogService') {
         };
 
     function getOrderDefaults() returns POs;
-    entity POItems                          as projection on db.transaction.poitems;
-    entity ProductSet                       as projection on db.master.product;
-    entity HarshSet                         as projection on db.harshtable;
-    entity City                             as projection on db.City;
-    entity Singers                          as projection on db.Singers;
+    entity POItems                               as projection on db.transaction.poitems;
+    entity ProductSet                            as projection on db.master.product;
+    entity HarshSet @(odata.draft.enabled: true) as projection on db.harshtable;
+    entity City                                  as projection on db.City;
+    entity Singers                               as projection on db.Singers;
 //entity PurchaseOrderSet as projection on cds.CDSViews.POWorklist;
 //entity ItemView as projection on cds.CDSViews.ItemView;
 //entity ProductSet as projection on cds.CDSViews.ProductView;

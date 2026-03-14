@@ -63,3 +63,18 @@ POST http://localhost:4004/odata/v4/CatalogService/POs('74867AD200E41EDBA5D8B0C9
 Content-Type: application/json
 
 {}
+
+###
+POST http://localhost:4004/odata/v4/CatalogService/HarshSet
+Content-Type:  application/json
+
+{
+"Name":"Harsh Sharma",
+"City":"Jaipur",
+"Phone":"1203232",
+"Status":"Inactive",
+"Favsinger":"Arijit Singh"
+}
+
+###
+ http://localhost:4004/odata/v4/CatalogService/HarshSet

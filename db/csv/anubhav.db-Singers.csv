@@ -1,1 +1,21 @@
-Singer_Genre,Singer_State,Singer_Country,Singer_Phone
+ID,Singer_Name,Singer_Genre,Singer_State,Singer_Country,Singer_Phone
+63f85b8c-8f4b-4b1e-8e8e-3c2b1a0f9d8c,Arijit Singh,Bollywood,Maharashtra,India,+91-9876543210
+7a2d4c91-1b3a-4e5f-9a1b-2c3d4e5f6a7b,Shreya Ghoshal,Classical,West Bengal,India,+91-9988776655
+f4b3a2e1-9d8c-4b1a-8e7f-6d5c4b3a2e1f,Taylor Swift,Pop,Pennsylvania,USA,+1-202-555-0101
+b2c3d4e5-f6a7-4b8c-9d0e-1a2b3c4d5e6f,Freddie Mercury,Rock,Zanzibar,UK,+44-20-7946-0958
+a1b2c3d4-e5f6-4a5b-8c9d-0e1f2a3b4c5d,Diljit Dosanjh,Punjabi,Punjab,India,+91-9123456789
+d5e6f7a8-b9c0-4d1e-8f2a-3b4c5d6e7f8a,Frank Sinatra,Jazz,New Jersey,USA,+1-212-555-0199
+c9d8b7a6-e5f4-4d3c-b2a1-0987654321fe,Drake,Hip Hop,Ontario,Canada,+1-416-555-0123
+e1f2a3b4-c5d6-4e7f-8a9b-0c1d2e3f4a5b,Mame Khan,Folk,Rajasthan,India,+91-9822334455
+1a2b3c4d-5e6f-4a7b-8c9d-0e1f2a3b4c5d,B.B. King,Blues,Mississippi,USA,+1-601-555-0111
+2b3c4d5e-6f7a-4b8c-9d0e-1a2b3c4d5e6f,Dolly Parton,Country,Tennessee,USA,+1-615-555-0122
+3c4d5e6f-7a8b-4c9d-0e1f-2a3b4c5d6e7f,David Guetta,Electronic,Paris,France,+33-1-4266-00
+4d5e6f7a-8b9c-4d0e-1f2a-3b4c5d6e7f8a,Jagjit Singh,Ghazal,Rajasthan,India,+91-9555667788
+5e6f7a8b-9c0d-4e1f-2a3b-4c5d6e7f8a9b,Jungkook,K-Pop,Busan,South Korea,+82-2-123-4567
+6f7a8b9c-0d1e-4f2a-3b4c-5d6e7f8a9b0c,Bob Marley,Reggae,Nine Mile,Jamaica,+1-876-555-0144
+7a8b9c0d-1e2f-4a3b-4c5d-6e7f8a9b0c1d,James Hetfield,Metal,California,USA,+1-415-555-0666
+8b9c0d1e-2f3a-4b4c-5d6e-7f8a9b0c1d2e,The Weeknd,R&B,Ontario,Canada,+1-416-555-0777
+9c0d1e2f-3a4b-4c5d-6e7f-8a9b0c1d2e3f,Prateek Kuhad,Indie,Rajasthan,India,+91-9333444555
+0d1e2f3a-4b5c-4d6e-7f8a-9b0c1d2e3f4a,Aretha Franklin,Soul,Tennessee,USA,+1-313-555-0166
+1e2f3a4b-5c6d-4e7f-8a9b-0c1d2e3f4a5b,Nina Kraviz,Techno,Irkutsk,Russia,+7-495-123-4567
+2f3a4b5c-6d7e-4f8a-9b0c-1d2e3f4a5b6c,Badshah,Rap,Delhi,India,+91-9000111222
