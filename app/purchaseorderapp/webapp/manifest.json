@@ -63,14 +63,15 @@
       "libs": {
         "sap.m": {},
         "sap.ui.core": {},
-        "sap.fe.templates": {}
+        "sap.fe.templates": {},
+        "sap.f": {}
       }
     },
     "contentDensities": {
       "compact": true,
       "cozy": true
     },
-   "models": {
+    "models": {
       "i18n": {
         "type": "sap.ui.model.resource.ResourceModel",
         "settings": {
@@ -97,22 +98,37 @@
       "css": []
     },
     "routing": {
-      "config": {},
+      "config": {
+        "flexibleColumnLayout": {
+          "defaultTwoColumnLayoutType": "TwoColumnsMidExpanded",
+          "defaultThreeColumnLayoutType": "ThreeColumnsMidExpanded"
+        },
+        "routerClass": "sap.f.routing.Router"
+      },
       "routes": [
         {
           "pattern": ":?query:",
           "name": "POsList",
-          "target": "POsList"
+          "target": [
+            "POsList"
+          ]
         },
         {
           "pattern": "POs({key}):?query:",
           "name": "POsObjectPage",
-          "target": "POsObjectPage"
+          "target": [
+            "POsList",
+            "POsObjectPage"
+          ]
         },
         {
           "pattern": "POs({key})/Items({key2}):?query:",
           "name": "poitemsObjectPage",
-          "target": "poitemsObjectPage"
+          "target": [
+            "POsList",
+            "POsObjectPage",
+            "poitemsObjectPage"
+          ]
         }
       ],
       "targets": {
@@ -139,7 +155,9 @@
                 }
               }
             }
-          }
+          },
+          "controlAggregation": "beginColumnPages",
+          "contextPattern": ""
         },
         "POsObjectPage": {
           "type": "Component",
@@ -157,7 +175,9 @@
                 }
               }
             }
-          }
+          },
+          "controlAggregation": "midColumnPages",
+          "contextPattern": "/POs({key})"
         },
         "poitemsObjectPage": {
           "type": "Component",
@@ -168,9 +188,17 @@
               "editableHeaderContent": false,
               "contextPath": "/POs/Items"
             }
-          }
+          },
+          "controlAggregation": "endColumnPages",
+          "contextPattern": "/POs({key})/Items({key2})"
         }
       }
+    },
+    "rootView": {
+      "viewName": "sap.fe.templates.RootContainer.view.Fcl",
+      "type": "XML",
+      "async": true,
+      "id": "appRootView"
     }
   },
   "sap.fiori": {

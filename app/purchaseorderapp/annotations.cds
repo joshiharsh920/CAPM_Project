@@ -27,9 +27,10 @@ annotate service.POs with @(
             Value: PO_ID,
         },
         {
-            $Type      : 'UI.DataField',
-            Value      : Overallstatus,
-            Criticality: ColorCode
+            $Type                    : 'UI.DataField',
+            Value                    : OVERALL_STATUS,
+            Criticality              : Criticality,
+            CriticalityRepresentation: #WithIcon,
         },
         {
             $Type: 'UI.DataField',
@@ -37,7 +38,7 @@ annotate service.POs with @(
         },
         {
             $Type      : 'UI.DataField',
-            Value      : lifeatcycle,
+            Value      : LIFECYCLE_STATUS,
             Criticality: ColorCode
         },
         {

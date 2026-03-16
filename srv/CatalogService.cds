@@ -12,7 +12,10 @@ service CatalogService @(path: 'CatalogService') {
         to   : 'Viewer'
     }])                                          as projection on db.master.employees;
 
-    entity POs @(odata.draft.enabled: true)      as
+    entity POs @(
+        title              : 'Purchase Orders',
+        odata.draft.enabled: true
+    )                                            as
         projection on db.transaction.purchaseorder {
             *,
             case
@@ -27,13 +30,13 @@ service CatalogService @(path: 'CatalogService') {
             end as OVERALL_STATUS : String(20),
             case
                 OVERALL_STATUS
-                when 'N'
+                when 'New'
                      then 0
-                when 'P'
-                     then 1
-                when 'B'
+                when 'Paid'
+                     then 3
+                when 'Blocked'
                      then 2
-                else 3
+                else 1
             end as Criticality    : Integer,
             Items
 

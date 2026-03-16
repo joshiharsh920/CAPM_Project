@@ -9,6 +9,7 @@
   ],
   "main": "webapp/index.html",
   "devDependencies": {
+    "@sap/ux-specification": "^1.142.2",
     "@sap/ux-ui5-tooling": "^1.20.4",
     "@ui5/cli": "^4.0.33",
     "ui5-task-zipper": "^3"
