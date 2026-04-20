@@ -58,8 +58,19 @@ annotate service.POs with @(
             Action: 'CatalogService.setOrderCancelled',
             Label : 'Cancel Order',
             Inline: true
+        },
+        {
+            $Type      : 'UI.DataFieldForAnnotation',
+            Label      : 'Rating',
+            Criticality: AmountRating,
+            Target     : '@UI.DataPoint#Rating'
         }
     ],
+    UI.DataPoint #Rating        : {
+        Value        : AmountRating,
+        TargetValue  : 100,
+        Visualization: #Progress
+    },
     UI.Facets                   : [
         {
             $Type : 'UI.CollectionFacet',

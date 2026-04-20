@@ -27,17 +27,30 @@ service CatalogService @(path: 'CatalogService') {
                 when 'B'
                      then 'Blocked'
                 else 'Delivered'
-            end as OVERALL_STATUS : String(20),
+            end as OverallStatus : String(10),
             case
                 OVERALL_STATUS
-                when 'New'
+                when 'N'
                      then 0
-                when 'Paid'
+                when 'P'
                      then 3
-                when 'Blocked'
+                when 'B'
                      then 2
                 else 1
-            end as Criticality    : Integer,
+            end as Criticality   : Integer,
+            case
+                when GROSS_AMOUNT >= 100000
+                     then 5
+                when GROSS_AMOUNT >= 75000
+                     then 4
+                when GROSS_AMOUNT >= 50000
+                     then 3
+                when GROSS_AMOUNT >= 20000
+                     then 2
+                when GROSS_AMOUNT >= 10000
+                     then 1
+                else 0
+            end as AmountRating  : Integer,
             Items
 
         }

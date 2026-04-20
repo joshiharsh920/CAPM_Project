@@ -39,6 +39,15 @@ module.exports = cds.service.impl(async function () {
         }
     })
 
+    this.after('boost', 'POs', async function (data, req) {
+        try {
+            const IDP = 'q';
+        }
+        catch (error) {
+
+        }
+    })
+
     this.on('setOrderCancelled', 'POs', async (req, res) => {
         const ID = req.params[0];
         const tx = cds.tx(req);
