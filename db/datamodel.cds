@@ -17,7 +17,7 @@ entity harshtable : cuid {
 }
 
 entity Singers : cuid {
-    Singer_Name    : String(20) @(title:'Singer Name');
+    Singer_Name    : String(20) @(title: 'Singer Name');
     Singer_Genre   : String(20) @(title: 'Music Genre');
     Singer_State   : String(20) @(title: 'State Of Singer');
     Singer_Country : String(20) @(title: 'Country Of Singer');
@@ -25,7 +25,7 @@ entity Singers : cuid {
 }
 
 entity City : cuid {
-    City : String(20);
+    City       : String(20);
     Mayor      : String(20);
     State      : String(10);
     Population : String(10);
