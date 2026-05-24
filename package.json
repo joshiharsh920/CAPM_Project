@@ -30,13 +30,9 @@
   ],
   "cds": {
     "requires": {
-      "db": {
-        "kind": "sqlite",
-        "model": "db",
-        "credentials": {
-          "url": "sqlite.db"
-        }
-      },
+     "db": {
+  "kind": "hana"
+},
       "auth": {
         "kind": "dummy"
       }
