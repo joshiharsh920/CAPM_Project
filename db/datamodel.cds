@@ -8,30 +8,6 @@ using {
 } from '@sap/cds/common';
 using {anubhav.common} from './commons';
 
-entity harshtable : cuid {
-    Name      : String(20) @(title: 'User Name');
-    City      : Association to City;
-    Phone     : String(30);
-    Status    : String(20);
-    Favsinger : Association to Singers;
-}
-
-entity Singers : cuid {
-    Singer_Name    : String(20) @(title: 'Singer Name');
-    Singer_Genre   : String(20) @(title: 'Music Genre');
-    Singer_State   : String(20) @(title: 'State Of Singer');
-    Singer_Country : String(20) @(title: 'Country Of Singer');
-    Singer_Phone   : String(15) @(title: 'Contact No.');
-}
-
-entity City : cuid {
-    City       : String(20);
-    Mayor      : String(20);
-    State      : String(10);
-    Population : String(10);
-    Literacy   : String(10) @(title: 'Literacy Rate');
-    Sector_No  : String(5)  @(title: 'Total Sectors')
-}
 
 context master {
 
@@ -102,7 +78,6 @@ context master {
 
 context transaction {
     entity purchaseorder : common.Amount, cuid {
-        // key NODE_KEY         : common.Guid;
         PO_ID            : String(40)                            @(title: '{i18n>PO_ID}');
         PARTNER_GUID     : Association to master.businesspartner @(title: 'Partner Id');
         LIFECYCLE_STATUS : String(1)                             @(title: 'Lifecycle Status');
