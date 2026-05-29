@@ -33,7 +33,7 @@
     "requires": {
       "db": {
         "kind": "sqlite",
-        "model": "db",
+        "model": "db/schema.cds",
         "credentials": {
           "url": "sqlite.db"
         }

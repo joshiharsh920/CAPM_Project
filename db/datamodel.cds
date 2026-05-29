@@ -8,6 +8,19 @@ using {
 } from '@sap/cds/common';
 using {anubhav.common} from './commons';
 
+
+entity SalesOrderItem {
+    key MANDT     : String(3); // Client
+    key VBELN     : String(10); // Sales Document Number
+    key POSNR     : String(6); // Item Number
+        ARKTX     : String(40); // Item Text / Short Description
+        NETWR     : Decimal(15, 2); // Net Value
+        WAERK     : String(5); // Currency Key
+        ERDAT     : Date; // Creation Date
+        ERZET     : Time; // Creation Time
+        KUNNR_ANA : String(10); // Account Assignment Customer
+}
+
 entity harshtable : cuid {
     Name      : String(20) @(title: 'User Name');
     City      : Association to City;

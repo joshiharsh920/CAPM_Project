@@ -19,6 +19,24 @@ module.exports = cds.service.impl(async function () {
         }
     });
 
+    this.on('CREATE', 'BusinessPartnerSet', async (req, res) => {
+        const tx = cds.tx(req);
+        const addressUUID = crypto.randomUUID().replace(/-/g, "");
+        const oPayload = {
+            BP_ID: req.data.BP_ID,
+            COMPANY_NAME: req.data.COMPANY_NAME,
+            EMAIL_ADDRESS: req.data.EMAIL_ADDRESS,
+            PHONE_NUMBER: req.data.PHONE_NUMBER,
+            ADDRESS_GUID: {
+                NODE_KEY: addressUUID,
+                CITY: req.data.ADDRESS_GUID.CITY,
+                COUNTRY: req.data.ADDRESS_GUID.COUNTRY,
+                STREET: req.data.ADDRESS_GUID.STREET
+            }
+        };
+        await tx.create('BusinessPartnerSet').entries(oPayload);
+    });
+
     this.on('getOrderDefaults', function (req, res) {
         return {
             "OVERALL_STATUS": "N"
