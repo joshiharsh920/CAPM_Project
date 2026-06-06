@@ -30,6 +30,13 @@
   ],
   "cds": {
     "requires": {
+       "ZTEST1_HARSH_DEMO_SRV": {
+        "kind": "odata-v2",
+        "model": "srv/external/ZTEST1_HARSH_DEMO_SRV",
+        "credentials": {
+          "destination": "onPremService"
+        }
+      },
      "db": {
   "kind": "hana"
 },

@@ -1,4 +1,5 @@
 using {anubhav.db} from '../db/datamodel';
+using { ZTEST1_HARSH_DEMO_SRV as external } from './external/ZTEST1_HARSH_DEMO_SRV';
 
 
 service CatalogService @(path: 'CatalogService') {
@@ -71,6 +72,7 @@ end as AmountRating : Integer,
     function getOrderDefaults() returns POs;
     entity POItems                               as projection on db.transaction.poitems;
     entity ProductSet                            as projection on db.master.product;
+    entity ZTESTHARSHDemo                            as projection on external.ZFORMDATASet;
 //entity PurchaseOrderSet as projection on cds.CDSViews.POWorklist;
 //entity ItemView as projection on cds.CDSViews.ItemView;
 //entity ProductSet as projection on cds.CDSViews.ProductView;

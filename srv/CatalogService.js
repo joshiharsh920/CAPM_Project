@@ -1,8 +1,26 @@
-// const cds = require('@sap/cds');
-// cds.requires.auth = false;
-
+const cds = require('@sap/cds');
 
 module.exports = cds.service.impl(async function () {
+
+  console.log("CatalogService loaded");
+
+  const backend = await cds.connect.to('ZTEST1_HARSH_DEMO_SRV');
+
+  this.on('READ', 'ZTESTHARSHDemo', async (req) => {
+    try {
+      console.log("READ triggered for ZTESTHARSHDemo");
+
+      return await backend.run(req.query);
+
+    } catch (err) {
+      console.error("Backend error:", err.message);
+      req.error(500, err.message);
+    }
+  });
+
+});
+module.exports = cds.service.impl(async function () {
+
     const { POs, EmployeeSet } = this.entities;
 
     this.before('UPDATE', 'EmployeeSet', (req) => {
