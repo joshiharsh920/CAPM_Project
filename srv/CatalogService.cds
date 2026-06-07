@@ -69,6 +69,7 @@ end as AmountRating : Integer,
             action   setOrderCancelled()  returns POs;
         };
 
+
     function getOrderDefaults() returns POs;
     entity POItems                               as projection on db.transaction.poitems;
     entity ProductSet                            as projection on db.master.product;
