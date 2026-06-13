@@ -38,7 +38,7 @@
         }
       },
      "db": {
-  "kind": "hana"
+  "kind": "sqlite"
 },
       "auth": {
         "kind": "dummy"

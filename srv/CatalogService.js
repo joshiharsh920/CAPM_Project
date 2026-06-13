@@ -30,6 +30,22 @@ module.exports = cds.service.impl(async function () {
         }
     });
 
+    this.on('CREATE', 'AddressSet',(req, res) => {
+        console.log("Address Creation Triggered with data:", req.data);
+    });
+
+    this.after('CREATE', 'AddressSet', (data, req) => {
+        console.log("Address Created with data:", data);
+    });
+
+    this.on('CREATE', 'BusinessPartnerSet',(req, res) => {
+        console.log("Business Partner Creation Triggered with data:", req.data);
+    });
+
+    this.after('CREATE', 'BusinessPartnerSet', (data, req) => {
+        console.log("Business Partner Created with data:", data);
+    });
+
     this.before('CREATE', 'EmployeeSet', (req, res) => {
         console.log(req.data);
         if (req.data.email.includes('gmail')) {
