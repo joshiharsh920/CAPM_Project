@@ -5,6 +5,7 @@
   "dependencies": {
     "@cap-js/hana": "^2",
     "@cap-js/postgres": "^2.1.3",
+    "@sap-cloud-sdk/resilience": "^4.7.0",
     "@sap/xssec": "^4",
     "cors": "^2.8.6",
     "express": "^4"
@@ -30,16 +31,17 @@
   ],
   "cds": {
     "requires": {
-       "ZTEST1_HARSH_DEMO_SRV": {
+      "ZTEST1_HARSH_DEMO_SRV": {
         "kind": "odata-v2",
         "model": "srv/external/ZTEST1_HARSH_DEMO_SRV",
         "credentials": {
-          "destination": "onPremService"
+          "destination": "onPremService",
+          "path": "/sap/opu/odata/sap/ZTEST1_HARSH_DEMO_SRV"
         }
       },
-     "db": {
-  "kind": "sqlite"
-},
+      "db": {
+        "kind": "sqlite"
+      },
       "auth": {
         "kind": "dummy"
       }
