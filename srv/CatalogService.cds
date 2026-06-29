@@ -10,12 +10,16 @@ service CatalogService @(path: 'CatalogService') {
      //@readonly
      entity EmployeeSet @(restrict: [{
           grant: ['READ'],
-          to   : 'Viewer'
+          where: 'bankName = $user.BankName'
      }])                       as projection on db.master.employees;
 
      entity POs @(
           title              : 'Purchase Orders',
-          odata.draft.enabled: true
+          odata.draft.enabled: true,
+          restrict           : [{
+               grant: ['READ'],
+               where: 'OVERALL_STATUS = $user.BankName'
+          }]
      )                         as
           projection on db.transaction.purchaseorder {
                *,

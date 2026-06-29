@@ -40,10 +40,10 @@
         }
       },
       "db": {
-        "kind": "sqlite"
+        "kind": "hana"
       },
       "auth": {
-        "kind": "dummy"
+        "kind": "xsuaa"
       }
     },
     "protocols": {
