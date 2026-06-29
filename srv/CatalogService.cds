@@ -18,7 +18,7 @@ service CatalogService @(path: 'CatalogService') {
           odata.draft.enabled: true,
           restrict           : [{
                grant: ['READ'],
-               where: 'OVERALL_STATUS = $user.BankName'
+               where: 'OVERALL_STATUS= $user.BankName'
           }]
      )                         as
           projection on db.transaction.purchaseorder {
