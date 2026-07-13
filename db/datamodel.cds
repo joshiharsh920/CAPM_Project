@@ -8,6 +8,7 @@ using {
 } from '@sap/cds/common';
 using {anubhav.common} from './commons';
 
+<<<<<<< HEAD
 
 entity SalesOrderItem {
     key MANDT     : String(3); // Client
@@ -45,6 +46,8 @@ entity City : cuid {
     Literacy   : String(10) @(title: 'Literacy Rate');
     Sector_No  : String(5)  @(title: 'Total Sectors')
 }
+=======
+>>>>>>> b1487895d7d55a8f24ee0c94765aca6ae0882207
 
 context master {
 
@@ -115,7 +118,6 @@ context master {
 
 context transaction {
     entity purchaseorder : common.Amount, cuid {
-        // key NODE_KEY         : common.Guid;
         PO_ID            : String(40)                            @(title: '{i18n>PO_ID}');
         PARTNER_GUID     : Association to master.businesspartner @(title: 'Partner Id');
         LIFECYCLE_STATUS : String(1)                             @(title: 'Lifecycle Status');

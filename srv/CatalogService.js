@@ -1,8 +1,26 @@
-// const cds = require('@sap/cds');
-// cds.requires.auth = false;
-
+const cds = require('@sap/cds');
 
 module.exports = cds.service.impl(async function () {
+
+  console.log("CatalogService loaded");
+
+  const backend = await cds.connect.to('ZTEST1_HARSH_DEMO_SRV');
+
+  this.on('READ', 'ZTESTHARSHDemo', async (req) => {
+    try {
+      console.log("READ triggered for ZTESTHARSHDemo");
+
+      return await backend.run(req.query);
+
+    } catch (err) {
+      console.error("Backend error:", err.message);
+      req.error(500, err.message);
+    }
+  });
+
+});
+module.exports = cds.service.impl(async function () {
+
     const { POs, EmployeeSet } = this.entities;
 
     this.before('UPDATE', 'EmployeeSet', (req) => {
@@ -11,6 +29,22 @@ module.exports = cds.service.impl(async function () {
             req.error(500, "Requested salary is not allowed");
         }
     });
+
+    // this.on('CREATE', 'AddressSet',(req, res) => {
+    //     console.log("Address Creation Triggered with data:", req.data);
+    // });
+
+    // this.after('CREATE', 'AddressSet', (data, req) => {
+    //     console.log("Address Created with data:", data);
+    // });
+
+    // this.on('CREATE', 'BusinessPartnerSet',(req, res) => {
+    //     console.log("Business Partner Creation Triggered with data:", req.data);
+    // });
+
+    // this.after('CREATE', 'BusinessPartnerSet', (data, req) => {
+    //     console.log("Business Partner Created with data:", data);
+    // });
 
     this.before('CREATE', 'EmployeeSet', (req, res) => {
         console.log(req.data);

@@ -1,0 +1,553 @@
+{
+ "meta": {
+  "creator": "cds-dk 9.9.1"
+ },
+ "$version": "2.0",
+ "definitions": {
+  "ZTEST1_HARSH_DEMO_SRV": {
+   "kind": "service",
+   "@cds.external": true,
+   "@m.IsDefaultEntityContainer": "true",
+   "@sap.supported.formats": "atom json xlsx"
+  },
+  "ZTEST1_HARSH_DEMO_SRV.ZITBDATASet": {
+   "kind": "entity",
+   "@cds.external": true,
+   "@cds.persistence.skip": true,
+   "@sap.creatable": "false",
+   "@sap.deletable": "false",
+   "@sap.pageable": "false",
+   "@sap.content.version": "1",
+   "elements": {
+    "ObjectId": {
+     "key": true,
+     "type": "cds.String",
+     "length": 32,
+     "@sap.unicode": "false",
+     "@sap.label": "OBJECT_ID",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false",
+     "@sap.sortable": "false",
+     "@sap.filterable": "false",
+     "notNull": true
+    },
+    "TabKey": {
+     "key": true,
+     "type": "cds.String",
+     "length": 20,
+     "@sap.unicode": "false",
+     "@sap.label": "TAB_KEY",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false",
+     "@sap.sortable": "false",
+     "@sap.filterable": "false",
+     "notNull": true
+    },
+    "TabText": {
+     "type": "cds.String",
+     "length": 40,
+     "@sap.unicode": "false",
+     "@sap.label": "TAB_TEXT",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false",
+     "@sap.sortable": "false",
+     "@sap.filterable": "false",
+     "notNull": true
+    },
+    "TabOrder": {
+     "type": "cds.Integer",
+     "@sap.unicode": "false",
+     "@sap.label": "INT4",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false",
+     "@sap.sortable": "false",
+     "@sap.filterable": "false",
+     "notNull": true
+    },
+    "TabCount": {
+     "type": "cds.Integer",
+     "@sap.unicode": "false",
+     "@sap.label": "INT4",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false",
+     "@sap.sortable": "false",
+     "@sap.filterable": "false",
+     "notNull": true
+    },
+    "TabIcon": {
+     "type": "cds.String",
+     "length": 30,
+     "@sap.unicode": "false",
+     "@sap.label": "TAB_ICON",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false",
+     "@sap.sortable": "false",
+     "@sap.filterable": "false",
+     "notNull": true
+    },
+    "IsVisible": {
+     "type": "cds.String",
+     "length": 1,
+     "@sap.unicode": "false",
+     "@sap.label": "IS_VISIBLE",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false",
+     "@sap.sortable": "false",
+     "@sap.filterable": "false",
+     "notNull": true
+    },
+    "ZTILESETSet": {
+     "type": "cds.Association",
+     "target": "ZTEST1_HARSH_DEMO_SRV.ZTILESETSet",
+     "cardinality": {
+      "max": "*"
+     },
+     "keys": []
+    }
+   }
+  },
+  "ZTEST1_HARSH_DEMO_SRV.ZTILESETSet": {
+   "kind": "entity",
+   "@cds.external": true,
+   "@cds.persistence.skip": true,
+   "@sap.pageable": "false",
+   "@sap.content.version": "1",
+   "elements": {
+    "TileId": {
+     "key": true,
+     "type": "cds.String",
+     "length": 10,
+     "@sap.unicode": "false",
+     "@sap.label": "TILE_ID",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false",
+     "@sap.sortable": "false",
+     "@sap.filterable": "false",
+     "notNull": true
+    },
+    "ObjectId": {
+     "key": true,
+     "type": "cds.String",
+     "length": 10,
+     "@sap.unicode": "false",
+     "@sap.label": "OBJECT_ID",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false",
+     "@sap.sortable": "false",
+     "@sap.filterable": "false",
+     "notNull": true
+    },
+    "TileTitle": {
+     "type": "cds.String",
+     "length": 50,
+     "@sap.unicode": "false",
+     "@sap.label": "TILE_TITLE",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false",
+     "@sap.sortable": "false",
+     "@sap.filterable": "false",
+     "notNull": true
+    },
+    "TileSubtitle": {
+     "type": "cds.String",
+     "length": 50,
+     "@sap.unicode": "false",
+     "@sap.label": "TILE_SUBTITLE",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false",
+     "@sap.sortable": "false",
+     "@sap.filterable": "false",
+     "notNull": true
+    },
+    "Icon": {
+     "type": "cds.String",
+     "length": 50,
+     "@sap.unicode": "false",
+     "@sap.label": "ICON",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false",
+     "@sap.sortable": "false",
+     "@sap.filterable": "false",
+     "notNull": true
+    },
+    "TargetView": {
+     "type": "cds.String",
+     "length": 30,
+     "@sap.unicode": "false",
+     "@sap.label": "TARGET_VIEW",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false",
+     "@sap.sortable": "false",
+     "@sap.filterable": "false",
+     "notNull": true
+    },
+    "Value": {
+     "type": "cds.Integer",
+     "@sap.unicode": "false",
+     "@sap.label": "VALUE",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false",
+     "@sap.sortable": "false",
+     "@sap.filterable": "false",
+     "notNull": true
+    },
+    "Status": {
+     "type": "cds.String",
+     "length": 1,
+     "@sap.unicode": "false",
+     "@sap.label": "STATUS",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false",
+     "@sap.sortable": "false",
+     "@sap.filterable": "false",
+     "notNull": true
+    }
+   }
+  },
+  "ZTEST1_HARSH_DEMO_SRV.CustomeTileSet": {
+   "kind": "entity",
+   "@cds.external": true,
+   "@cds.persistence.skip": true,
+   "@sap.deletable": "false",
+   "@sap.pageable": "false",
+   "@sap.content.version": "1",
+   "elements": {
+    "Customerid": {
+     "key": true,
+     "type": "cds.Integer",
+     "@sap.unicode": "false",
+     "@sap.label": "CustomerId",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false",
+     "@sap.sortable": "false",
+     "@sap.filterable": "false",
+     "notNull": true
+    },
+    "Zfirstname": {
+     "type": "cds.String",
+     "length": 20,
+     "@sap.unicode": "false",
+     "@sap.label": "First Name",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false",
+     "@sap.sortable": "false",
+     "@sap.filterable": "false",
+     "notNull": true
+    },
+    "Zlastname": {
+     "type": "cds.String",
+     "length": 20,
+     "@sap.unicode": "false",
+     "@sap.label": "Last Name",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false",
+     "@sap.sortable": "false",
+     "@sap.filterable": "false",
+     "notNull": true
+    },
+    "Age": {
+     "type": "cds.Integer",
+     "@odata.Type": "Edm.Byte",
+     "@sap.unicode": "false",
+     "@sap.label": "Age",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false",
+     "@sap.sortable": "false",
+     "@sap.filterable": "false",
+     "notNull": true
+    },
+    "Religion": {
+     "type": "cds.String",
+     "length": 15,
+     "@sap.unicode": "false",
+     "@sap.label": "Religion",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false",
+     "@sap.sortable": "false",
+     "@sap.filterable": "false",
+     "notNull": true
+    },
+    "Email": {
+     "type": "cds.String",
+     "length": 20,
+     "@sap.unicode": "false",
+     "@sap.label": "Email Address",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false",
+     "@sap.sortable": "false",
+     "@sap.filterable": "false",
+     "notNull": true
+    },
+    "Phonenumber": {
+     "type": "cds.Integer",
+     "@sap.unicode": "false",
+     "@sap.label": "Phone Number",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false",
+     "@sap.sortable": "false",
+     "@sap.filterable": "false",
+     "notNull": true
+    },
+    "Id": {
+     "type": "cds.String",
+     "length": 10,
+     "@sap.unicode": "false",
+     "@sap.label": "ID",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false",
+     "@sap.sortable": "false",
+     "@sap.filterable": "false",
+     "notNull": true
+    },
+    "Idnumber": {
+     "type": "cds.Integer",
+     "@sap.unicode": "false",
+     "@sap.label": "ID NUMBER",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false",
+     "@sap.sortable": "false",
+     "@sap.filterable": "false",
+     "notNull": true
+    },
+    "Homeadd": {
+     "type": "cds.String",
+     "length": 100,
+     "@sap.unicode": "false",
+     "@sap.label": "Home Address",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false",
+     "@sap.sortable": "false",
+     "@sap.filterable": "false",
+     "notNull": true
+    },
+    "Formid": {
+     "type": "cds.Integer64",
+     "@sap.unicode": "false",
+     "@sap.label": "Form ID",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false",
+     "@sap.sortable": "false",
+     "@sap.filterable": "false",
+     "notNull": true
+    },
+    "Remarks": {
+     "type": "cds.String",
+     "length": 200,
+     "@sap.unicode": "false",
+     "@sap.label": "Additional Notes",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false",
+     "@sap.sortable": "false",
+     "@sap.filterable": "false",
+     "notNull": true
+    }
+   }
+  },
+  "ZTEST1_HARSH_DEMO_SRV.ZFORMDATASet": {
+   "kind": "entity",
+   "@cds.external": true,
+   "@cds.persistence.skip": true,
+   "@sap.creatable": "false",
+   "@sap.updatable": "false",
+   "@sap.deletable": "false",
+   "@sap.pageable": "false",
+   "@sap.content.version": "1",
+   "elements": {
+    "Formid": {
+     "key": true,
+     "type": "cds.Integer",
+     "@sap.unicode": "false",
+     "@sap.label": "Form Bundle ID",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false",
+     "@sap.sortable": "false",
+     "@sap.filterable": "false",
+     "notNull": true
+    },
+    "Formstatus": {
+     "type": "cds.String",
+     "length": 10,
+     "@sap.unicode": "false",
+     "@sap.label": "Form Bundle Status",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false",
+     "@sap.sortable": "false",
+     "@sap.filterable": "false",
+     "notNull": true
+    },
+    "Stepno": {
+     "type": "cds.Integer",
+     "@odata.Type": "Edm.Byte",
+     "@sap.unicode": "false",
+     "@sap.label": "Step Number",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false",
+     "@sap.sortable": "false",
+     "@sap.filterable": "false",
+     "notNull": true
+    },
+    "Formtype": {
+     "type": "cds.String",
+     "length": 10,
+     "@sap.unicode": "false",
+     "@sap.label": "Form Type",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false",
+     "@sap.sortable": "false",
+     "@sap.filterable": "false",
+     "notNull": true
+    }
+   }
+  },
+  "ZTEST1_HARSH_DEMO_SRV.ZTESTHARSHDemo": {
+   "kind": "entity",
+   "@cds.external": true,
+   "@cds.persistence.skip": true,
+   "@sap.pageable": "false",
+   "@sap.addressable": "false",
+   "@sap.content.version": "1",
+   "elements": {
+    "Orderid": {
+     "key": true,
+     "type": "cds.String",
+     "length": 20,
+     "@sap.unicode": "false",
+     "@sap.label": "ORDER ID",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false",
+     "@sap.sortable": "false",
+     "@sap.filterable": "false",
+     "notNull": true
+    },
+    "Mandt": {
+     "type": "cds.String",
+     "length": 3,
+     "@sap.unicode": "false",
+     "@sap.label": "Client",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false",
+     "@sap.sortable": "false",
+     "@sap.filterable": "false",
+     "notNull": true
+    },
+    "Customerid": {
+     "type": "cds.String",
+     "length": 10,
+     "@sap.unicode": "false",
+     "@sap.label": "CUSTOMER ID",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false",
+     "@sap.sortable": "false",
+     "@sap.filterable": "false",
+     "notNull": true
+    },
+    "Customername": {
+     "type": "cds.String",
+     "length": 20,
+     "@sap.unicode": "false",
+     "@sap.label": "Customer Name",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false",
+     "@sap.sortable": "false",
+     "@sap.filterable": "false",
+     "notNull": true
+    },
+    "Orderdate": {
+     "type": "cds.String",
+     "length": 10,
+     "@sap.unicode": "false",
+     "@sap.label": "ORDER DATE",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false",
+     "@sap.sortable": "false",
+     "@sap.filterable": "false",
+     "notNull": true
+    },
+    "Orderstatus": {
+     "type": "cds.String",
+     "length": 10,
+     "@sap.unicode": "false",
+     "@sap.label": "ORDER STATUS",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false",
+     "@sap.sortable": "false",
+     "@sap.filterable": "false",
+     "notNull": true
+    },
+    "Address": {
+     "type": "cds.String",
+     "length": 132,
+     "@sap.unicode": "false",
+     "@sap.label": "Individual Addr",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false",
+     "@sap.sortable": "false",
+     "@sap.filterable": "false",
+     "notNull": true
+    }
+   }
+  },
+  "ZTEST1_HARSH_DEMO_SRV.ZTESTHARSHDemo2": {
+   "kind": "entity",
+   "@cds.external": true,
+   "@cds.persistence.skip": true,
+   "@sap.deletable": "false",
+   "@sap.pageable": "false",
+   "@sap.addressable": "false",
+   "@sap.content.version": "1",
+   "elements": {
+    "params1": {
+     "key": true,
+     "type": "cds.String",
+     "length": 20,
+     "@sap.unicode": "false",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false",
+     "@sap.sortable": "false",
+     "@sap.filterable": "false",
+     "notNull": true
+    },
+    "status": {
+     "type": "cds.String",
+     "length": 20,
+     "@sap.unicode": "false",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false",
+     "@sap.sortable": "false",
+     "@sap.filterable": "false",
+     "notNull": true
+    },
+    "params3": {
+     "type": "cds.String",
+     "length": 20,
+     "@sap.unicode": "false",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false",
+     "@sap.sortable": "false",
+     "@sap.filterable": "false",
+     "notNull": true
+    },
+    "result": {
+     "type": "cds.String",
+     "length": 20,
+     "@sap.unicode": "false",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false",
+     "@sap.sortable": "false",
+     "@sap.filterable": "false",
+     "notNull": true
+    },
+    "params2": {
+     "type": "cds.String",
+     "length": 20,
+     "@sap.unicode": "false",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false",
+     "@sap.sortable": "false",
+     "@sap.filterable": "false",
+     "notNull": true
+    }
+   }
+  }
+ }
+}

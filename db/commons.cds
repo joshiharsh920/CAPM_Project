@@ -8,6 +8,7 @@ type Gender : String(1) enum{
     undisclosed = 'U';
 };
 
+
 type AmountT : Decimal(10,2)@(
     Semantics.amount.currencyCode: 'CURRENCY_CODE',
     sap.unit:'CURRENCY_CODE'
