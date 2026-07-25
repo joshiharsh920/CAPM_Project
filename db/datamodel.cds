@@ -8,7 +8,6 @@ using {
 } from '@sap/cds/common';
 using {anubhav.common} from './commons';
 
-<<<<<<< HEAD
 
 entity SalesOrderItem {
     key MANDT     : String(3); // Client
@@ -46,8 +45,6 @@ entity City : cuid {
     Literacy   : String(10) @(title: 'Literacy Rate');
     Sector_No  : String(5)  @(title: 'Total Sectors')
 }
-=======
->>>>>>> b1487895d7d55a8f24ee0c94765aca6ae0882207
 
 context master {
 

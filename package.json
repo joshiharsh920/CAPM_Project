@@ -1,0 +1,66 @@
+{
+  "name": "capm_project",
+  "version": "1.0.0",
+  "description": "Welcome to your new project.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joshiharsh920/CAPM_Project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/joshiharsh920/CAPM_Project/issues"
+  },
+  "homepage": "https://github.com/joshiharsh920/CAPM_Project#readme",
+  "dependencies": {
+    "@cap-js/sqlite": "^3.0.2",
+    "@sap-cloud-sdk/resilience": "^4.8.0",
+    "@sap/cds": "^10.0.4",
+    "@sap/cds-dk": "^10.0.5"
+  },
+  "cds": {
+    "requires": {
+      "ZTEST1_HARSH_DEMO_SRV": {
+        "kind": "odata-v2",
+        "model": "srv/external/ZTEST1_HARSH_DEMO_SRV",
+        "credentials": {
+          "destination": "onPremService",
+          "path": "/sap/opu/odata/sap/ZTEST1_HARSH_DEMO_SRV"
+        }
+      },
+      "db": {
+        "kind": "sqlite"
+      },
+      "auth": {
+        "kind": "dummy"
+      }
+    }
+  },
+  "protocols": {
+    "odata": {
+      "cors": {
+        "origin": "http://localhost:5173",
+        "credentials": true,
+        "methods": [
+          "GET",
+          "POST",
+          "PUT",
+          "PATCH",
+          "DELETE",
+          "OPTIONS"
+        ],
+        "allowedHeaders": [
+          "Content-Type",
+          "Authorization",
+          "x-csrf-token"
+        ]
+      }
+    }
+  }
+}

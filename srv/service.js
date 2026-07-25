@@ -1,6 +1,5 @@
 const cdsCompile = require("@sap/cds/lib/compile/cds-compile");
 const SELECT = require("@sap/cds/lib/ql/SELECT");
-const {employees}=cds.entities("anubhav.db.master");
 
 module.exports=function(srv){
     srv.on('hello',function(req,res){

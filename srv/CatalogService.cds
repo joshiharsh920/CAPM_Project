@@ -16,10 +16,7 @@ service CatalogService @(path: 'CatalogService') {
      entity POs @(
           title              : 'Purchase Orders',
           odata.draft.enabled: true,
-          restrict           : [{
-               grant: ['READ'],
-               where: 'OVERALL_STATUS= $user.BankName'
-          }]
+
      )                         as
           projection on db.transaction.purchaseorder {
                *,
@@ -98,7 +95,7 @@ service CatalogService @(path: 'CatalogService') {
      entity POItems            as projection on db.transaction.poitems;
      entity ProductSet         as projection on db.master.product;
 
-     entity ZTESTHARSHDemo     as projection on external.ZFORMDATASet;
+     entity ZTESTHARSHDemo     as projection on external.ZTESTHARSHDemo;
 //entity PurchaseOrderSet as projection on cds.CDSViews.POWorklist;
 //entity ItemView as projection on cds.CDSViews.ItemView;
 //entity ProductSet as projection on cds.CDSViews.ProductView;
