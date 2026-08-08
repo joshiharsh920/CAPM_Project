@@ -21,17 +21,26 @@ const cds = require('@sap/cds');
 // });
 module.exports = cds.service.impl(async function () {
 
-    const external = await cds.connect.to('ZTEST1_HARSH_DEMO_SRV');
+    const external =await cds.connect.to('ZTEST1_HARSH_DEMO_SRV');
 
-    
-  this.on('READ', 'ZTESTHARSHDemo', async (req) => {
 
-    const result = await external.run(req.query); // 👈 BEST PRACTICE
+    this.on('READ', 'ZTESTHARSHDemo', async (req) => {
 
-    console.log("External Data:", result);
+        try {
+            const result = await external.run(req.query);
 
-    return result;
-  });
+            console.log("✅ External Data:", result);
+
+            return result;
+
+        } catch (error) {
+            console.error("❌ FULL ERROR:", error);   // 👈 IMPORTANT
+            console.error("❌ MESSAGE:", error.message);
+            console.error("❌ STACK:", error.stack);
+
+            req.error(500, error.message);
+        }
+    });
 
     const { POs, EmployeeSet } = this.entities;
 

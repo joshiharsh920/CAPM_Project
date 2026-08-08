@@ -1,5 +1,5 @@
 using {anubhav.db} from '../db/datamodel';
-using {ZTEST1_HARSH_DEMO_SRV as external} from './external/ZTEST1_HARSH_DEMO_SRV';
+using {ZTEST1_HARSH_DEMO_SRV as external} from './external/ZTEST1_HARSH_DEMO_SRV.csn';
 
 
 service CatalogService @(path: 'CatalogService') {

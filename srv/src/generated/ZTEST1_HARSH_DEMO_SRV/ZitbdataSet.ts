@@ -1,0 +1,88 @@
+/*
+ * Copyright (c) 2026 SAP SE or an SAP affiliate company. All rights reserved.
+ *
+ * This is a generated file powered by the SAP Cloud SDK for JavaScript.
+ */
+import {
+  Entity,
+  DefaultDeSerializers,
+  DeSerializers,
+  DeserializedType
+} from '@sap-cloud-sdk/odata-v2';
+import type { ZitbdataSetApi } from './ZitbdataSetApi';
+import { ZtilesetSet, ZtilesetSetType } from './ZtilesetSet';
+
+/**
+ * This class represents the entity "ZITBDATASet" of service "ZTEST1_HARSH_DEMO_SRV".
+ */
+export class ZitbdataSet<T extends DeSerializers = DefaultDeSerializers>
+  extends Entity
+  implements ZitbdataSetType<T>
+{
+  /**
+   * Technical entity name for ZitbdataSet.
+   */
+  static override _entityName = 'ZITBDATASet';
+  /**
+   * Default url path for the according service.
+   */
+  static override _defaultBasePath = '/sap/opu/odata/sap/ZTEST1_HARSH_DEMO_SRV';
+  /**
+   * All key fields of the ZitbdataSet entity.
+   */
+  static _keys = ['ObjectId', 'TabKey'];
+  /**
+   * OBJECT_ID.
+   * Maximum length: 32.
+   */
+  declare objectId: DeserializedType<T, 'Edm.String'>;
+  /**
+   * TAB_KEY.
+   * Maximum length: 20.
+   */
+  declare tabKey: DeserializedType<T, 'Edm.String'>;
+  /**
+   * TAB_TEXT.
+   * Maximum length: 40.
+   */
+  declare tabText: DeserializedType<T, 'Edm.String'>;
+  /**
+   * INT4.
+   */
+  declare tabOrder: DeserializedType<T, 'Edm.Int32'>;
+  /**
+   * INT4.
+   */
+  declare tabCount: DeserializedType<T, 'Edm.Int32'>;
+  /**
+   * TAB_ICON.
+   * Maximum length: 30.
+   */
+  declare tabIcon: DeserializedType<T, 'Edm.String'>;
+  /**
+   * IS_VISIBLE.
+   * Maximum length: 1.
+   */
+  declare isVisible: DeserializedType<T, 'Edm.String'>;
+  /**
+   * One-to-many navigation property to the {@link ZtilesetSet} entity.
+   */
+  declare ztilesetSet: ZtilesetSet<T>[];
+
+  constructor(_entityApi: ZitbdataSetApi<T>) {
+    super(_entityApi);
+  }
+}
+
+export interface ZitbdataSetType<
+  T extends DeSerializers = DefaultDeSerializers
+> {
+  objectId: DeserializedType<T, 'Edm.String'>;
+  tabKey: DeserializedType<T, 'Edm.String'>;
+  tabText: DeserializedType<T, 'Edm.String'>;
+  tabOrder: DeserializedType<T, 'Edm.Int32'>;
+  tabCount: DeserializedType<T, 'Edm.Int32'>;
+  tabIcon: DeserializedType<T, 'Edm.String'>;
+  isVisible: DeserializedType<T, 'Edm.String'>;
+  ztilesetSet: ZtilesetSetType<T>[];
+}
