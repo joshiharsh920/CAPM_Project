@@ -80,8 +80,8 @@ service CatalogService @(path: 'CatalogService') {
                @cds.odata.bindingparameter.name: '_anubhav'
                @Common.SideEffects             : {TargetProperties: ['_anubhav/GROSS_AMOUNT']}
                action   boost()              returns POs;
-               @cds.odata.bindingparameter.name: '_ananya'
-               @Common.SideEffects             : {TargetProperties: ['_ananya/OVERALL_STATUS']}
+               @cds.odata.bindingparameter.name: '_anany'
+               @Common.SideEffects             : {TargetProperties: ['_anany/OVERALL_STATUS']}
                action   setOrderProcessing() returns POs;
                function largestOrder()       returns POs;
 
