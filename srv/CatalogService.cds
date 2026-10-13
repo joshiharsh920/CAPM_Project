@@ -84,7 +84,6 @@ service CatalogService @(path: 'CatalogService') {
                @Common.SideEffects             : {TargetProperties: ['_anany/OVERALL_STATUS']}
                action   setOrderProcessing() returns POs;
                function largestOrder()       returns POs;
-
                @cds.odata.bindingparameter.name: '_ananya'
                @Common.SideEffects             : {TargetProperties: ['_ananya/LIFECYCLE_STATUS']}
                action   setOrderCancelled()  returns POs;
