@@ -21,26 +21,18 @@ const cds = require('@sap/cds');
 // });
 module.exports = cds.service.impl(async function () {
 
-    const external =await cds.connect.to('ZTEST1_HARSH_DEMO_SRV');
+    const external = await cds.connect.to('ZTEST1_HARSH_DEMO_SRV');
 
+    
+  this.on('READ', 'ZTESTHARSHDemo', async (req) => {
 
-    this.on('READ', 'ZTESTHARSHDemo', async (req) => {
+    const result = await external.run(req.query); // 👈 BEST PRACTICE
 
-        try {
-            const result = await external.run(req.query);
+    
+    console.log("External Data:", result);
 
-            console.log("✅ External Data:", result);
-
-            return result;
-
-        } catch (error) {
-            console.error("❌ FULL ERROR:", error);   // 👈 IMPORTANT
-            console.error("❌ MESSAGE:", error.message);
-            console.error("❌ STACK:", error.stack);
-
-            req.error(500, error.message);
-        }
-    });
+    return result;
+  });
 
     const { POs, EmployeeSet } = this.entities;
 
@@ -74,6 +66,14 @@ module.exports = cds.service.impl(async function () {
         }
     });
 
+    this.before('CREATE','POs',async (req,res) => {
+          req.warn({
+            message: "High-value purchase order requires approval",
+            target: "GROSS_AMOUNT"
+        });
+    });
+
+
     this.on('CREATE', 'BusinessPartnerSet', async (req, res) => {
         const tx = cds.tx(req);
         const addressUUID = crypto.randomUUID().replace(/-/g, "");
@@ -99,6 +99,11 @@ module.exports = cds.service.impl(async function () {
     });
 
     this.on('boost', 'POs', async function (req, res) {
+          req.error({
+                code: "400",
+                message: "Gross Amount must be greater than zero",
+                target: "GROSS_AMOUNT"
+            });
         try {
             const ID = req.params[0];
             console.log("Hey harsh you gave me id:", ID);
