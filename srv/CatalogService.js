@@ -1,24 +1,6 @@
 const cds = require('@sap/cds');
 
-// module.exports = cds.service.impl(async function () {
 
-//   console.log("CatalogService loaded");
-
-//   const backend = await cds.connect.to('ZTEST1_HARSH_DEMO_SRV');
-
-//   this.on('READ', 'ZTESTHARSHDemo', async (req) => {
-//     try {
-//       console.log("READ triggered for ZTESTHARSHDemo");
-
-//       return await backend.run(req.query);
-
-//     } catch (err) {
-//       console.error("Backend error:", err.message);
-//       req.error(500, err.message);
-//     }
-//   });
-
-// });
 module.exports = cds.service.impl(async function () {
 
     const external = await cds.connect.to('ZTEST1_HARSH_DEMO_SRV');
@@ -43,21 +25,6 @@ module.exports = cds.service.impl(async function () {
         }
     });
 
-    // this.on('CREATE', 'AddressSet',(req, res) => {
-    //     console.log("Address Creation Triggered with data:", req.data);
-    // });
-
-    // this.after('CREATE', 'AddressSet', (data, req) => {
-    //     console.log("Address Created with data:", data);
-    // });
-
-    // this.on('CREATE', 'BusinessPartnerSet',(req, res) => {
-    //     console.log("Business Partner Creation Triggered with data:", req.data);
-    // });
-
-    // this.after('CREATE', 'BusinessPartnerSet', (data, req) => {
-    //     console.log("Business Partner Created with data:", data);
-    // });
 
     this.before('CREATE', 'EmployeeSet', (req, res) => {
         console.log(req.data);
@@ -66,6 +33,9 @@ module.exports = cds.service.impl(async function () {
         }
     });
 
+    this.after('READ','POs',async(res)=>{
+        console.log(res);
+    });
     this.before('CREATE','POs',async (req,res) => {
           req.warn({
             message: "High-value purchase order requires approval",

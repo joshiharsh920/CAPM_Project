@@ -150,7 +150,8 @@
               "controlConfiguration": {
                 "@com.sap.vocabularies.UI.v1.LineItem": {
                   "tableSettings": {
-                    "type": "ResponsiveTable"
+                    "type": "ResponsiveTable",
+                    "selectionLimit": 1
                   }
                 }
               }
@@ -199,6 +200,15 @@
       "type": "XML",
       "async": true,
       "id": "appRootView"
+    },
+    "extends": {
+      "extensions": {
+        "sap.ui.controllerExtensions": {
+          "sap.fe.templates.ObjectPage.ObjectPageController#invenio.purchaseorderapp::POsObjectPage": {
+            "controllerName": "invenio.purchaseorderapp.ext.controller.ObjectPageController"
+          }
+        }
+      }
     }
   },
   "sap.fiori": {
